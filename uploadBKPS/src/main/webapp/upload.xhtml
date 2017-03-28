@@ -43,8 +43,8 @@
 					<p:message for="email" id="messageEmail" />
 
 					<p:outputLabel value="Mensagem:" for="mensagem" />
-					<p:inputTextarea id="mensagem" value="#{uploadBean.mensagem}" rows="5"
-						cols="30" counter="display" maxlength="150"
+					<p:inputTextarea id="mensagem" value="#{uploadBean.mensagem}"
+						rows="5" cols="30" counter="display" maxlength="150"
 						counterTemplate="{0} characters remaining." autoResize="false" />
 					<h:outputText id="display" />
 
@@ -53,6 +53,14 @@
 
 				</h:panelGrid>
 			</p:fieldset>
+		</h:form>
+
+		<h:form>
+			<p:fileUpload fileUploadListener="#{uploadBean.handleFileUpload}"
+				mode="advanced" dragDropSupport="false" multiple="true"
+				update="messages" fileLimit="3"/>
+
+			<p:growl id="messages" showDetail="true" />
 		</h:form>
 
 	</ui:define>
